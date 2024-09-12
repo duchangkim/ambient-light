@@ -1,0 +1,21 @@
+{
+  "name": "ambient-light",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@duchi/prettier-config": "^1.0.10",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
+  "prettier": "@duchi/prettier-config",
+  "dependencies": {
+    "simplex-noise": "^4.0.3"
+  }
+}
