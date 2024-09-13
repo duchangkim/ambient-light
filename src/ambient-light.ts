@@ -1,5 +1,5 @@
 import { createNoise2D } from 'simplex-noise';
-import { getAverageColor, getRGBString, RGBColor } from './color';
+import { getAverageColor, RGBColor } from './color';
 import { BloomLight } from './bloom-light';
 
 export interface CornerColors {
@@ -159,7 +159,7 @@ export class AmbientLight {
       minRadius,
       pointCount: 15,
       lightColor: this.cornerColors!.topLeft,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topLeft',
     });
 
@@ -169,7 +169,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.topRight,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topRight',
     });
 
@@ -179,7 +179,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.topLeft,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topCenterLeft',
     });
 
@@ -189,7 +189,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.topRight,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topCenterRight',
     });
 
@@ -199,7 +199,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.bottomLeft,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomLeft',
     });
 
@@ -209,7 +209,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.bottomRight,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomRight',
     });
 
@@ -219,7 +219,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.bottomLeft,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomCenterLeft',
     });
 
@@ -229,7 +229,7 @@ export class AmbientLight {
       maxRadius,
       minRadius,
       lightColor: this.cornerColors!.bottomRight,
-      backgroundColor: 'rgba(36,36,36,0.1)',
+      backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomCenterRight',
     });
 
