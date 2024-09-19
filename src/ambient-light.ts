@@ -40,9 +40,6 @@ export class AmbientLight {
     this.virtualCanvas.height = 6;
     this.virtualCanvasContext = this.virtualCanvas.getContext('2d', { willReadFrequently: true });
 
-    // this.video.parentElement?.appendChild(this.virtualCanvas);
-    // this.video.parentElement?.appendChild(this.ambientLightCanvas);
-
     this.initAmbientLightDOM();
   }
 
@@ -55,8 +52,8 @@ export class AmbientLight {
     this.ambientLightCanvas.style.width = '100%';
     this.ambientLightCanvas.style.transform = 'scale(1.4)';
     this.ambientLightCanvas.style.zIndex = '-1';
-    this.ambientLightCanvas.width = this.video.videoWidth;
-    this.ambientLightCanvas.height = this.video.videoHeight;
+    this.ambientLightCanvas.width = this.video.videoWidth || 960;
+    this.ambientLightCanvas.height = this.video.videoHeight || 540;
 
     this.ambientLightCanvasContext = this.ambientLightCanvas.getContext('2d', {
       willReadFrequently: true,
