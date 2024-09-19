@@ -38,7 +38,7 @@ export class AmbientLight {
     this.virtualCanvas = document.createElement('canvas');
     this.virtualCanvas.width = 10;
     this.virtualCanvas.height = 6;
-    this.virtualCanvasContext = this.virtualCanvas.getContext('2d');
+    this.virtualCanvasContext = this.virtualCanvas.getContext('2d', { willReadFrequently: true });
 
     // this.video.parentElement?.appendChild(this.virtualCanvas);
     // this.video.parentElement?.appendChild(this.ambientLightCanvas);
@@ -58,7 +58,9 @@ export class AmbientLight {
     this.ambientLightCanvas.width = this.video.videoWidth;
     this.ambientLightCanvas.height = this.video.videoHeight;
 
-    this.ambientLightCanvasContext = this.ambientLightCanvas.getContext('2d');
+    this.ambientLightCanvasContext = this.ambientLightCanvas.getContext('2d', {
+      willReadFrequently: true,
+    });
 
     const videoParent = this.video.parentElement;
     const fragment = document.createDocumentFragment();
