@@ -60,11 +60,14 @@ button:focus-visible {
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
 
   & video {
     width: 95%;
     height: auto;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
     border: 12px solid #191919;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 20px 60px rgba(0, 0, 0, 0.3);
   }
 }

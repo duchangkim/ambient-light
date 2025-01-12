@@ -52,8 +52,8 @@ export class AmbientLight {
     this.ambientLightCanvas.style.width = '100%';
     this.ambientLightCanvas.style.transform = 'scale(1.4)';
     this.ambientLightCanvas.style.zIndex = '-1';
-    this.ambientLightCanvas.width = this.video.videoWidth || 960;
-    this.ambientLightCanvas.height = this.video.videoHeight || 540;
+    this.ambientLightCanvas.width = this.video.videoWidth || 1280;
+    this.ambientLightCanvas.height = this.video.videoHeight || 896;
 
     this.ambientLightCanvasContext = this.ambientLightCanvas.getContext('2d', {
       willReadFrequently: true,
@@ -143,14 +143,16 @@ export class AmbientLight {
   }
 
   draw() {
-    const maxRadius = 200;
-    const minRadius = 180;
+    const maxRadius = 250;
+    const minRadius = 200;
+    const centerMaxRadius = 260;
+    const centerMinRadius = 220;
 
     this.drawVideoFrameInVirtualCanvas();
     this.cornerColors = this.getCornerAverageColors();
-    // this.displayColors();
 
     this.bloomLight?.clearRect();
+
     this.bloomLight?.drawLight({
       x: maxRadius,
       y: maxRadius,
@@ -173,20 +175,20 @@ export class AmbientLight {
     });
 
     this.bloomLight?.drawLight({
-      x: this.ambientLightCanvas!.width / 2.5,
+      x: this.ambientLightCanvas!.width / 3,
       y: maxRadius,
-      maxRadius,
-      minRadius,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
       lightColor: this.cornerColors!.topLeft,
       backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topCenterLeft',
     });
 
     this.bloomLight?.drawLight({
-      x: this.ambientLightCanvas!.width - this.ambientLightCanvas!.width / 2.5,
+      x: this.ambientLightCanvas!.width - this.ambientLightCanvas!.width / 3,
       y: maxRadius,
-      maxRadius,
-      minRadius,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
       lightColor: this.cornerColors!.topRight,
       backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'topCenterRight',
@@ -213,23 +215,45 @@ export class AmbientLight {
     });
 
     this.bloomLight?.drawLight({
-      x: this.ambientLightCanvas!.width / 2.5,
+      x: this.ambientLightCanvas!.width / 3,
       y: this.ambientLightCanvas!.height - maxRadius,
-      maxRadius,
-      minRadius,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
       lightColor: this.cornerColors!.bottomLeft,
       backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomCenterLeft',
     });
 
     this.bloomLight?.drawLight({
-      x: this.ambientLightCanvas!.width - this.ambientLightCanvas!.width / 2.5,
+      x: this.ambientLightCanvas!.width - this.ambientLightCanvas!.width / 3,
       y: this.ambientLightCanvas!.height - maxRadius,
-      maxRadius,
-      minRadius,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
       lightColor: this.cornerColors!.bottomRight,
       backgroundColor: 'rgba(24,24,27,0.1)',
       id: 'bottomCenterRight',
+    });
+
+    // 왼쪽 중앙 광원
+    this.bloomLight?.drawLight({
+      x: maxRadius,
+      y: this.ambientLightCanvas!.height / 2,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
+      lightColor: this.cornerColors!.bottomLeft,
+      backgroundColor: 'rgba(24,24,27,0.1)',
+      id: 'leftCenter',
+    });
+
+    // 오른쪽 중앙 광원
+    this.bloomLight?.drawLight({
+      x: this.ambientLightCanvas!.width - maxRadius,
+      y: this.ambientLightCanvas!.height / 2,
+      maxRadius: centerMaxRadius,
+      minRadius: centerMinRadius,
+      lightColor: this.cornerColors!.bottomRight,
+      backgroundColor: 'rgba(24,24,27,0.1)',
+      id: 'rightCenter',
     });
 
     this.animationFrameId = requestAnimationFrame(this.draw.bind(this));
